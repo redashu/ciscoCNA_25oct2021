@@ -1,6 +1,6 @@
 # Plan 
 
-<img src="cna.png">
+<img src="plan.png">
 
 ## problem with bare-metal setup for apps
 
