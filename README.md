@@ -1,1 +1,8 @@
-# ciscoCNA_25oct2021
+# Plan 
+
+<img src="cna.png">
+
+## problem with bare-metal setup for apps
+
+<img src="bare.png">
+
