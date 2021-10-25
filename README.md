@@ -38,5 +38,5 @@
 
 ### IAAS 
 
-<img src="IAAS.png">
+<img src="iaas.png">
 
