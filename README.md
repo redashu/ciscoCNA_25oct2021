@@ -19,3 +19,24 @@
 
 <img src="hypert.png">
 
+## little view of DC 
+
+<img src="dc.png">
+
+## more problems with resources 
+
+<img src="prob1.png">
+
+### CLoud -- SAAS 
+
+<img src="saas.png">
+
+
+### PAAS
+
+<img src="paas.png">
+
+### IAAS 
+
+<img src="IAAS.png">
+
