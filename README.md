@@ -163,3 +163,88 @@ Server:
 
 ```
 
+### COntainer vs VM app deploy
+
+<img src="contapp.png">
+
+### app building using dockerfile
+
+<img src="dockerfile.png">
+
+### Dockerfile 
+
+<img src="build1.png">
+
+### building docker images
+
+```
+[root@ip-172-31-17-13 project-website-template]# ls
+Dockerfile  LICENSE  README.md  css  embedding.html  empty.html  img  index.html  js  menu.html  vid  widgets.html
+[root@ip-172-31-17-13 project-website-template]# docker  build  -t  ashuhttpd:v1  . 
+Sending build context to Docker daemon  2.215MB
+Step 1/5 : FROM oraclelinux:8.4
+ ---> 521767a68c46
+Step 2/5 : MAINTAINER  ashutoshh singh
+ ---> Running in 8e0732b57009
+Removing intermediate container 8e0732b57009
+ ---> 9c5a36129ed8
+Step 3/5 : RUN  yum  install  httpd  -y
+ ---> Running in 084870e98761
+Oracle Linux 8 BaseOS Latest (x86_64)            39 MB/s |  36 MB     00:00    
+
+
+```
+
+### building and running 
+
+```
+docker  images
+REPOSITORY               TAG       IMAGE ID       CREATED         SIZE
+dockerashu/ciscowebapp   v1        e8d0f6d5116c   5 minutes ago   395MB
+ashuhttpd                v1        e8d0f6d5116c   5 minutes ago   395MB
+oraclelinux              8.4       521767a68c46   12 days ago     246MB
+alpine                   latest    14119a10abf4   8 weeks ago     5.6MB
+[root@ip-172-31-17-13 project-website-template]# docker  run  --name  ashuwebc1  -itd  -p 80:80  ashuhttpd:v1  
+af4e014478a5ef50534acacbcd6c5eb53d640e6463a7494f3778b5e0436034c7
+[root@ip-172-31-17-13 project-website-template]# docker  ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                               NAMES
+af4e014478a5   ashuhttpd:v1   "/bin/sh -c 'httpd -…"   5 seconds ago   Up 3 seconds   0.0.0.0:80->80/tcp, :::80->80/tcp   ashuwebc1
+
+
+```
+
+### Docker history 
+
+```
+ 47  cd  project-website-template
+   48  ls
+   49  nano  Dockerfile
+   50  cat  Dockerfile 
+   51  ls
+   52  docker  images
+   53  ls
+   54  docker  build  -t  ashuhttpd:v1  . 
+   55  history 
+   56  docker  images
+   57  cat  Dockerfile 
+   58  docker  tag  e8d0f6d5116c  dockerashu/ciscowebapp:v1  
+   59  docker login -u dockerashu
+   60  docker push  dockerashu/ciscowebapp:v1 
+   61  docker  images
+   62  docker  run  --name  ashuwebc1  -itd  -p 80:80  ashuhttpd:v1  
+   63  docker  ps
+   64  docker  stats
+   65  history 
+[root@ip-172-31-17-13 project-website-template]# docker  ps
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         PORTS                               NAMES
+af4e014478a5   ashuhttpd:v1   "/bin/sh -c 'httpd -…"   2 minutes ago   Up 2 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp   ashuwebc1
+[root@ip-172-31-17-13 project-website-template]# cat  Dockerfile 
+FROM oraclelinux:8.4
+MAINTAINER  ashutoshh singh 
+RUN  yum  install  httpd  -y 
+COPY .  /var/www/html/
+ENTRYPOINT  httpd -DFOREGROUND 
+
+
+```
+
