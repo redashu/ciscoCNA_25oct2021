@@ -248,3 +248,7 @@ ENTRYPOINT  httpd -DFOREGROUND
 
 ```
 
+### accessing container 
+
+<img src="exec.png">
+
