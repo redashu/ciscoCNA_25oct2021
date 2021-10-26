@@ -101,3 +101,65 @@ Oct 26 05:58:56 ip-172-31-17-13.us-east-2.compute.internal systemd[1]: Started T
 
 ```
 
+## monolithic to Micro services
+
+<img src="micro.png">
+
+### vm prob
+
+<img src="vmprob.png">
+
+### VM has entire OS but we don't need to just to run apps
+
+<img src="oss.png">
+
+### OS 
+
+<img src="os.png">
+
+### hypervisor vs container runtime
+
+<img src="cre.png">
+
+### Hypervisor vs CRe
+
+<img src="cre1.png">
+
+### Installing docker in vm 
+
+```
+23  yum  install  docker  
+   24  history 
+[root@ip-172-31-17-13 html]# systemctl start  docker 
+[root@ip-172-31-17-13 html]# docker  version 
+Client:
+ Version:           20.10.7
+ API version:       1.41
+ Go version:        go1.15.14
+ Git commit:        f0df350
+ Built:             Tue Sep 28 19:55:50 2021
+ OS/Arch:           linux/amd64
+ Context:           default
+ Experimental:      true
+
+Server:
+ Engine:
+  Version:          20.10.7
+  API version:      1.41 (minimum version 1.12)
+  Go version:       go1.15.14
+  Git commit:       b0f5bc3
+  Built:            Tue Sep 28 19:56:28 2021
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.4.6
+  GitCommit:        d71fcd7d8303cbf684402823e425e9dd2e99285d
+ runc:
+  Version:          1.0.0
+  GitCommit:        84113eef6fc27af1b01b3181f31bbaf708715301
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+
+```
+
