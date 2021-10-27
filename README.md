@@ -1,1 +1,8 @@
-# ciscoCNA_25oct2021
+# CNA standards
+
+<img src="cna.png">
+
+### Docker architecture 
+
+<img src="darch.png">
+
