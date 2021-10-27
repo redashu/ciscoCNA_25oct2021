@@ -75,4 +75,74 @@ a4723e260b6f: Pull complete
    
 ```
 
+### COntainer related problems 
+
+<img src="crr.png">
+
+### container orchestration engine 
+
+<img src="carch.png">
+
+### k8s architecture 
+
+
+<img src="k8s1.png">
+
+### ks8 internal 
+<img src="k8s2.png">
+
+
+### auth to k8s master 
+
+```
+kubectl  get  nodes  --kubeconfig Desktop/admin.conf 
+NAME         STATUS   ROLES                  AGE    VERSION
+masternode   Ready    control-plane,master   6d4h   v1.22.2
+node1        Ready    <none>                 6d4h   v1.22.2
+node2        Ready    <none>                 6d4h   v1.22.2
+```
+
+### Pod Design 
+
+<img src="pod1.png">
+
+### POD 1 
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+ name: ashupod-1 
+spec: 
+ containers:
+ - name: ashuc1  # name of container 
+   image: dockerashu/ashuwebapp:v1 # image from docker hub 
+   ports:
+   - containerPort: 80 # nginx app is having default 80 port
+
+```
+
+### Deploy it 
+
+```
+kubectl  apply -f  ashupod1.yaml 
+pod/ashupod-1 created
+ fire@ashutoshhs-MacBook-Air  ~/Desktop/myapp  kubectl  get  pods
+NAME        READY   STATUS    RESTARTS   AGE
+ashupod-1   1/1     Running   0          5s
+```
+
+###
+
+```
+kubectl  get  pods -o wide
+NAME        READY   STATUS    RESTARTS   AGE    IP                NODE    NOMINATED NODE   READINESS GATES
+ashupod-1   1/1     Running   0          115s   192.168.166.165   node1   <none>           <none>
+saranran    1/1     Running   0          98s    192.168.166.175   node1   <none>           <none>
+
+```
+
+
+
+
 
