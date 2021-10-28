@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashuwebapp
+  name: ashuwebapp # name of Deployment 
+spec:
+  replicas: 1 # number of POD 
+  selector:
+    matchLabels:
+      app: ashuwebapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ashuwebapp
+    spec:
+      containers:
+      - image: wordpress:4.8-apache # name of docker image 
+        name: wordpress # name of container 
+        ports:  # optinal field these days 
+        - containerPort: 80 
+        env: # use env variable to give URL / Username & password : 
+        - name: WORDPRESS_DB_USER # for DB user name 
+          value: admin 
+        - name: WORDPRESS_DB_HOST # for DB url / host 
+          value: ashudb # have to create INternal DNS name and use that name 
+        - name: WORDPRESS_DB_PASSWORD # DB password 
+          valueFrom: # calling k8s secret to read password info  
+           secretKeyRef:
+            name: dbsec1 # name of secret 
+            key: sqlpass # name of key 
+        resources: {}
+status: {}
