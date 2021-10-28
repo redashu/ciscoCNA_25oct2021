@@ -221,5 +221,68 @@ vaibhavweb   LoadBalancer   10.104.239.132   <pending>     80:30697/TCP   1s
 
 <img src="externaldb.png">
 
+### Deploy web app 
+
+```
+kubectl  create  deployment   ashuwebapp  --image=wordpress:4.8-apache --dry-run=client  -o yaml  >frontendapp.yaml 
+
+```
+
+### creating db sec
+
+```
+ kubectl  create  secret generic  dbsec1  --from-literal  sqlpass="Rhel098)(*"
+ 
+```
+
+### creating INTernal DNS 
+
+```
+kubectl  create  service  externalname   ashudb --external-name ciscodb.cqypbbo9r82r.us-east-1.rds.amazonaws.com  --tcp 3306  --dry-run=client -o yaml 
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashudb
+  name: ashudb
+spec:
+  externalName: ciscodb.cqypbbo9r82r.us-east-1.rds.amazonaws.com
+  ports:
+  - name: "3306"
+    port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    app: ashudb
+  type: ExternalName
+status:
+  loadBalancer: {}
+
+```
+
+###
+
+```
+mysql -u admin  -h ashudb  -p 
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 74
+Server version: 8.0.23 Source distribution
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> exit;
+Bye
+
+```
+
+
 
 
