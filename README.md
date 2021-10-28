@@ -201,3 +201,25 @@ vaibhavweb   LoadBalancer   10.104.239.132   <pending>     80:30697/TCP   1s
  ```
  
  
+### DB 
+
+<img src="db.png">
+
+### DB in CNA 
+
+<img src="dbaas.png">
+
+### better to use CNA model cloud service for RDBMS 
+
+<img src="db11.png">
+
+### CNA starndart to containers
+
+<img src="std.png">
+
+### K8s app to external Db 
+
+<img src="externaldb.png">
+
+
+
