@@ -1,6 +1,6 @@
 # Rev of CNA as of now
 
-<img src="rev.png">
+<img src="cna.png">
 
 ### a closure look to k8s 
 
