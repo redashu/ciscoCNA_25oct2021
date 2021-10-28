@@ -283,6 +283,15 @@ Bye
 
 ```
 
+### Devops intro 
+
+<img src="dev1.png">
+
+### IAC 
+
+<img src="iac.png">
+
+
 
 
 
