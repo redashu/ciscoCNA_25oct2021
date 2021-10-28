@@ -163,3 +163,41 @@ deployment.apps "saranweb" deleted
 
 ```
 
+### exposing deployment to access application in k8s
+
+```
+kubectl  get deployment                                              
+NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+ashtiwaweb   3/3     3            3           8m12s
+ashuweb      3/3     3            3           8m8s
+deepuweb     2/2     2            2           41s
+rajweb       2/2     2            2           7m53s
+saranweb     3/3     3            3           6m1s
+vaibhavweb   2/2     2            2           6m58s
+ fire@ashutoshhs-MacBook-Air  ~/Desktop/myapp  
+ fire@ashutoshhs-MacBook-Air  ~/Desktop/myapp  
+ fire@ashutoshhs-MacBook-Air  ~/Desktop/myapp  kubectl  expose   deployment ashuweb  --type LoadBalancer  --port 80  
+ ✘ fire@ashutoshhs-MacBook-Air  ~/Desktop/myapp  
+ ✘ fire@ashutoshhs-MacBook-Air  ~/Desktop/myapp  kubectl  get  service 
+NAME         TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+ashtiwaweb   LoadBalancer   10.100.136.191   <pending>     80:32404/TCP   13s
+ashuweb      LoadBalancer   10.102.243.176   <pending>     80:30610/TCP   33s
+kubernetes   ClusterIP      10.96.0.1        <none>        443/TCP        5d20h
+ fire@ashutoshhs-MacBook-Air  ~/Desktop/myapp  kubectl  get  svc     
+NAME         TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)        AGE
+ashtiwaweb   LoadBalancer   10.100.136.191   <pending>     80:32404/TCP   18s
+ashuweb      LoadBalancer   10.102.243.176   <pending>     80:30610/TCP   38s
+kubernetes   ClusterIP      10.96.0.1        <none>        443/TCP        5d20h
+vaibhavweb   LoadBalancer   10.104.239.132   <pending>     80:30697/TCP   1s
+
+```
+
+### updating new image 
+
+```
+ kubectl  set  image  deployment  ashuweb  ashuwebapp=dockerashu/ashuwebapp:v2 
+ 
+                                             name of container 
+ ```
+ 
+ 
