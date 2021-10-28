@@ -1,0 +1,24 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashuweb
+  name: ashuweb # name of deployment 
+spec:
+  replicas: 1 # number of POD we want 
+  selector:
+    matchLabels:
+      app: ashuweb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ashuweb
+    spec:
+      containers:
+      - image: dockerashu/ashuwebapp:v1
+        name: ashuwebapp
+        resources: {}
+status: {}
