@@ -20,3 +20,7 @@
 <img src="cicd.png">
 
 
+### Devops tool industry 
+
+<img src="dev.png">
+
