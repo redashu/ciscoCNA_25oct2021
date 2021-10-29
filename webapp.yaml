@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashuwebapp
+  name: ashuwebapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ashuwebapp
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ashuwebapp
+    spec:
+      containers:
+      - image: dockerashu/ashuciscoapp:v0001
+        name: ashuciscoapp
+        resources: {}
+status: {}
